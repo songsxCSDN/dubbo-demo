@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssx.mapper.UserMapper">
+
+    <!--表名 -->
+    <sql id="tableName">
+		 user
+	</sql>
+
+    <!-- 字段 -->
+    <sql id="Field">
+		userID,userName,addressID
+	</sql>
+
+    <!-- 字段值 -->
+    <sql id="FieldValue">
+		#{userID},
+		#{userName},
+		#{addressID}
+	</sql>
+
+    <!-- 新增-->
+    <insert id="save" parameterType="User">
+        insert into
+        <include refid="tableName"></include>
+        (
+        <include refid="Field"></include>
+        ) values (
+        <include refid="FieldValue"></include>
+        )
+    </insert>
+
+    <!-- 删除-->
+    <delete id="delete" parameterType="Integer">
+        delete from
+        <include refid="tableName"></include>
+        where
+        userID = #{userID}
+    </delete>
+
+    <!-- 修改 -->
+    <update id="edit" parameterType="com.ssx.bean.User">
+        update
+        <include refid="tableName"></include>
+        set
+        userName = #{userName}
+        addressID = #{addressID}
+        where
+        userID = #{userID}
+    </update>
+
+    <!-- 通过用户ID获取用户地址 -->
+    <select id="getAdressByUserID" parameterType="Integer" resultType="com.ssx.bean.User">
+        select
+        <include refid="Field"></include>
+        from
+        <include refid="tableName"></include>
+        where
+        userID = #{userID}
+    </select>
+
+
+</mapper>

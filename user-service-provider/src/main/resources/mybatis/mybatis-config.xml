@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <setting name="cacheEnabled" value="true" /><!-- 全局映射器启用缓存 -->
+        <setting name="useGeneratedKeys" value="true" />
+        <setting name="defaultExecutorType" value="REUSE" />
+        <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias alias="Integer" type="java.lang.Integer" />
+        <typeAlias alias="Long" type="java.lang.Long" />
+        <typeAlias alias="HashMap" type="java.util.HashMap" />
+        <typeAlias alias="ArrayList" type="java.util.ArrayList" />
+        <typeAlias type="com.ssx.bean.User" alias="User"/>
+
+      <!--  <typeAlias type="com.hk.entity.system.Role" alias="Role"/>
+        <typeAlias type="com.hk.entity.system.Menu" alias="Menu"/>
+        <typeAlias type="com.hk.entity.system.Dictionaries" alias="Dictionaries"/>&ndash;&gt;-->
+        <!-- 这里添加生成的实体类 -->
+       <!-- <typeAlias type="com.hk.util.PageData" alias="pd"/>-->
+        <!-- 分页 -->
+        <!--<typeAlias type="com.hk.entity.Page" alias="Page"/>-->
+    </typeAliases>
+
+</configuration>
